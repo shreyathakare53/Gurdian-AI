@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-bg: #050505;
+  --color-surface: #121212;
+  --color-accent: #10b981; /* Emerald */
+  --color-accent-glow: rgba(16, 185, 129, 0.2);
+  
+  /* Theme Overrides */
+  --theme-child: #f472b6;
+  --theme-science: #3b82f6;
+  --theme-arts: #f59e0b;
+  --theme-medical: #ef4444;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-white font-sans antialiased overflow-x-hidden;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.glass-dark {
+  @apply bg-black/40 backdrop-blur-2xl border border-white/5;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+.atmosphere-bg {
+  background: 
+    radial-gradient(circle at 50% -20%, #1a1a1a 0%, transparent 70%),
+    radial-gradient(circle at 0% 100%, #0a1a10 0%, transparent 50%);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
